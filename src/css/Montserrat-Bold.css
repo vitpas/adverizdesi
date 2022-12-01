@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/src/fonts/Montserrat/Montserrat-Bold.eot');
+    src: url('/src/fonts/Montserrat/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+         url('/src/fonts/Montserrat/Montserrat-Bold.woff2') format('woff2'),
+         url('/src/fonts/Montserrat/Montserrat-Bold.woff') format('woff'),
+         url('/src/fonts/Montserrat/Montserrat-Bold.ttf')  format('truetype'),
+         url('/src/fonts/Montserrat/Montserrat-Bold.svg#Montserrat') format('svg');
+}
