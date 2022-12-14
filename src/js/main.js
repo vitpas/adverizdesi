@@ -15,8 +15,16 @@ let factoryDiscrOpen;
 let discOpenContainer;
 let prevState;
 
+const spec = document.querySelector('.spec');
+
 document.addEventListener('click', (event) => {
   const target = event.target;
+  if (target.closest('.btn_detail-info')) {
+    spec.classList.add('spec-open');
+  }
+  if (target.closest('.spec-btn') || target.closest('.scrollBottom') ){
+    spec.classList.remove('spec-open');
+  }
   if (target.closest('.menu_btn')) {
     menuOpen.classList.remove('closed');
     menuOpen.classList.add('opened-flex');
@@ -39,11 +47,11 @@ document.addEventListener('click', (event) => {
       }
     };
   }
-  if (target.closest('.btn-dis-fac') || target.closest('.header-link')) {
+  /* if (target.closest('.btn-dis-fac') || target.closest('.header-link')) {
     factoryDiscrOpen.hidden = true;
     factoryDiscrOpen = null;
     factory.hidden = false;
-  }
+  } */
   if (target.closest('.modal-zoom')) {
     document.querySelector('.modal-img-scale').src = target.attributes.src.value;
     document.querySelector('.caption-img').textContent = target.alt;
@@ -77,7 +85,7 @@ const logo = document.querySelector('.logo_link-img');
 const headerInner = document.querySelector('.header_inner');
 const contactTelsA = document.querySelector('.contact_tels-active');
 const first = document.querySelector('.first');
-
+/* 
 function isVisible(elem) {
   if (elem.getBoundingClientRect().top < window.innerHeight*2) return true;
   return false;
@@ -92,27 +100,9 @@ function showVisible() {
       img.dataset.src = '';
     }
   }
-}
+} */
 
-window.addEventListener('scroll', () => {
-  showVisible();
-  if (scrollY > 0) {
-    logo.classList.add('miniLogo')
-    headerInner.classList.add('miniInner');
-    contactTelsA.classList.add('miniTels');
-    first.classList.add('miniFirst');
-    
-  };
-  if (scrollY == 0) {
-    logo.classList.remove('miniLogo');
-    headerInner.classList.remove('miniInner');
-    contactTelsA.classList.remove('miniTels');
-    first.classList.remove('miniFirst');
-    
-  };
-});
-
-showVisible();
+// showVisible();
 
 const factoryHover = document.querySelectorAll('[data-hover="hover"]');
 for (let index = 0; index < factoryHover.length; index++) {
@@ -127,11 +117,11 @@ for (let index = 0; index < factoryHover.length; index++) {
 
 const deskMenu = document.querySelector('.desk-menu');
 
-window.addEventListener('load', () => {
+/* window.addEventListener('load', () => {
   if (document.URL.includes('door.html')) {
     deskMenu.classList.add('linked-door');
   };
-})
+}) */
 
 // test
 window.addEventListener('resize', () => {
