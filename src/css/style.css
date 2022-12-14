@@ -1348,6 +1348,10 @@ body {
   color: #000;
 }
 
+.scrollTop {
+  margin-top: 10px;
+}
+
 .spec-btn:hover,
 .scrollBottom:hover,
 .scrollTop:hover {
@@ -1363,6 +1367,16 @@ body {
   background-color: #fff;
   border-radius: 8px;
   padding-bottom: 5px;
+}
+
+@media (width >= 63em) {
+  .door-spec {
+    flex-direction: row;
+  }
+  .spec-bottom,
+  .door-spec-discr {
+    flex: 1 1 50%
+  }
 }
 
 .spec-bottom h5,
