@@ -63,7 +63,7 @@ document.addEventListener('click', (event) => {
     document.querySelector('.modal-img-scale').src = '';
     document.querySelector('.caption-img').textContent = '';
   }
-  if (target.closest('.fact-open-desc')) {
+  /* if (target.closest('.fact-open-desc')) {
     factoryDiscrOpen.hidden = true;
     for (let index = 0; index < factoryDiscrDoorsContainer.length; index++) {
       const element = factoryDiscrDoorsContainer[index];
@@ -73,7 +73,7 @@ document.addEventListener('click', (event) => {
         break;
       };
     };
-  }
+  } */
   if (target.closest('.disc-open_btn-close')) {
     discOpenContainer.hidden = true;
     discOpenContainer = null;

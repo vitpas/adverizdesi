@@ -867,6 +867,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
   width: fit-content;
+  text-align: center;
 }
 
 .btn-dis-fac {
@@ -1183,9 +1184,20 @@ body {
   padding: 5px;
 }
 
+.main-door_block {
+  justify-content: center;
+}
+
+.main-door_block-img {
+  padding: 5px;
+  width: min(40vw, 150px);
+  cursor: zoom-in;
+}
+
 .factory-discr-main-door_block-img {
   max-width: min(30vw, 130px);
   height: fit-content;
+  cursor: zoom-in;
 }
 
 .factory-discr-main-door_info {
@@ -1199,6 +1211,11 @@ body {
   border: 2px solid var(--red);
   text-align: center;
   padding: 5px;
+}
+
+.main-door_price-last {
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .main-door_price p:first-child {
