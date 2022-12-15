@@ -1201,9 +1201,12 @@ body {
   padding: 5px;
 }
 
+.main-door_price p:first-child {
+  font-weight: bold;
+}
+
 .main-door_price span {
   color: var(--red);
-  font-weight: bold;
 }
 
 .main-door_price-info {
