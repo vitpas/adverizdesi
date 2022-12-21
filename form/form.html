@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+  <!-- <form>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}" id="email" required type="email" title="must be a valid email address">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input title="Must be at least 8 characters" pattern="[a-zA-Z0-9]{8,}" id="password" required type="password">
+      <p class="input-hint">Must be at least 8 characters</p>
+    </div>
+    <button>Submit</button>
+  </form> -->
+  <div class="form-container">
+    <div class="form-table">
+      <button class="close-btn" type="button" aria-label="close"></button>
+      <p>Заявка на обратный звонок</p>
+      <form action="#" method="post">
+        <div class="form-group">
+          <input type="text" id="name" required pattern="^[А-ЯЁ][а-яё]*$">
+          <label class="label-name" for="name">Ваше имя*</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="" id="tel" required pattern="^((\+7|7|8)+([0-9]){10})$">
+          <label for="tel">Номер вашего телефона*</label>
+        </div>
+        <div class="form-group">
+          <input type="text" name="" id="adds">
+          <label for="adds">Адрес установки двери</label>
+        </div>
+        <div class="form-group">
+          <input type="time" name="" id="time">
+          <label for="time">Желаемое время звонка</label>
+        </div>
+        <div class="form-group">
+          <button class="form-group-btn" type="submit">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

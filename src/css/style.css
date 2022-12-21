@@ -1264,15 +1264,69 @@ body {
   color: #000;
 }
 
+.mounting-info {
+  border-bottom: 3px solid var(--red);
+}
+
+@media (width > 43em) {
+  .mounting-info {
+    display: flex;
+  }
+}
+
+.prof-mounting {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  text-align: center;
+  flex: 1 1 50%;
+}
+
+.prof-mounting p {
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.prof-mounting > p:nth-child(2) {
+  text-align: left;
+}
+
+.prof-mounting span {
+  color: var(--red);
+}
+
+.prof-mounting ul {
+  text-align: left;
+}
+
+.prof-mounting li {
+  list-style-type: none;
+}
+
+.prof-mounting li::before {
+  display: inline-block;
+  content: '';
+  width: 10px;
+  height: 4px;
+  border-top: 4px solid transparent;
+  border-left: 10px solid var(--red);
+  border-bottom: 4px solid transparent;
+  margin-right: 5px;
+}
+
 .disc-open-main_info {
   display: flex;
   flex-wrap: wrap;
   font-size: .6em;
   text-align: center;
+  align-items: center;
   justify-content: space-evenly;
   gap: 10px;
-  padding: 10px 0;
-  border-bottom: 3px solid var(--red);
+  margin: 5px;
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  flex: 1 1 50%;
 }
 
 .disc-open-main_info div {
@@ -1353,7 +1407,7 @@ body {
 .scrollBottom,
 .scrollTop {
   display: block;
-  margin: 5px auto;
+  margin: 10px auto;
   border: 2px solid var(--red);
   background-color: transparent;
   padding: 5px;
@@ -1382,21 +1436,12 @@ body {
 
 .door-spec {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 5px;
   background-color: #fff;
   border-radius: 8px;
   padding-bottom: 5px;
-}
-
-@media (width >= 63em) {
-  .door-spec {
-    flex-direction: row;
-  }
-  .spec-bottom,
-  .door-spec-discr {
-    flex: 1 1 50%
-  }
 }
 
 .spec-bottom h5,
