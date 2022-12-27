@@ -22,4 +22,4 @@
   $mail->Subject = $theme;
   $mail->Body = $body;
 
-  $mail->Send();
+  $mail->send();
