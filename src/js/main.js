@@ -4,18 +4,14 @@ const menuOpen = document.querySelector('.menu-open');
 const aboutBtn = document.querySelector('.about_btn');
 const aboutArticle = document.querySelector('.about_article');
 const factory = document.querySelector('.factory');
-const factoryDiscr = document.querySelectorAll('.factory-discr');
 const btnDisFac = document.querySelectorAll('.btn-dis-fac');
 const factoryDiscrDoor = document.querySelectorAll('.factory-discr-door');
 const discOpen = document.querySelectorAll('.disc-open');
 const header = document.querySelector('header');
 const mainContact = document.querySelector('.main-contact');
 const factoryDiscrDoorsContainer = document.querySelectorAll('.factory-discr-doors-container');
-let factoryDiscrOpen;
-let discOpenContainer;
+let scrollState;
 let prevState;
-
-const spec = document.querySelector('.spec');
 
 document.addEventListener('click', (event) => {
   const target = event.target;
@@ -56,28 +52,71 @@ document.addEventListener('click', (event) => {
     document.querySelector('.modal-img-scale').src = target.attributes.src.value;
     document.querySelector('.caption-img').textContent = target.alt;
     document.querySelector('.modal-img').hidden = false;
-    console.log(true);
   }
   if (target.closest('.modal-img span')) {
     document.querySelector('.modal-img').hidden = true;
     document.querySelector('.modal-img-scale').src = '';
     document.querySelector('.caption-img').textContent = '';
   }
-  /* if (target.closest('.fact-open-desc')) {
-    factoryDiscrOpen.hidden = true;
-    for (let index = 0; index < factoryDiscrDoorsContainer.length; index++) {
-      const element = factoryDiscrDoorsContainer[index];
-      if (element.dataset.model === target.dataset.model) {
-        element.hidden = false;
-        discOpenContainer = element;
-        break;
-      };
-    };
-  } */
+  if (target.closest('.fact-open-desc')) {
+    scrollState = scrollY;
+    const btnOpen = target.closest('.fact-open-desc');
+    // data selection
+    const newPrice = btnOpen.previousElementSibling;
+    const textPrice = newPrice.textContent;
+    const newName = newPrice.previousElementSibling.textContent;
+    const firstSrc = btnOpen.parentElement.previousElementSibling.firstElementChild.attributes.src.value;
+    const secondSrc = btnOpen.parentElement.previousElementSibling.lastElementChild.attributes.src.value;
+    const mountingInfo = document.querySelector(".mounting-info").cloneNode(true);
+    const doorSpec = document.querySelector('.door-spec').cloneNode(true);
+    // create card
+    const card = document.createElement("div");
+    card.classList.add("factory-discr-last");
+    card.insertAdjacentHTML('afterbegin', '<button class="disc-open_btn-close" type="button" aria-label="close"></button>')
+
+    const cardFirstDiv = document.createElement("div");
+    cardFirstDiv.classList.add("factory-discr-main-door");
+    const cardH = document.createElement("h2");
+    cardH.classList.add("factory-strong");
+    cardH.textContent = newName;
+    cardFirstDiv.appendChild(cardH);
+
+    const images = document.createElement("div");
+    images.classList.add("factory-discr-main-door_block");
+    images.classList.add("main-door_block");
+
+    const firstImage = document.createElement("img");
+    firstImage.classList.add("main-door_block-img");
+    firstImage.classList.add("modal-zoom");
+    firstImage.setAttribute('src', firstSrc);
+
+    const secondImage = document.createElement("img");
+    secondImage.classList.add("main-door_block-img");
+    secondImage.classList.add("modal-zoom");
+    secondImage.setAttribute('src', secondSrc);
+
+    images.append(firstImage, secondImage);
+    cardFirstDiv.appendChild(images);
+
+    const priceInfo = document.createElement("div");
+    priceInfo.classList.add("factory-discr-main-door_info");
+    const priceInfoLast = document.createElement("div");
+    priceInfoLast.classList.add("main-door_price");
+    priceInfoLast.classList.add("main-door_price-last");
+    priceInfoLast.insertAdjacentHTML("afterbegin", `<p>Цена: <span>${textPrice}</span></p>`)
+    priceInfo.appendChild(priceInfoLast);
+    cardFirstDiv.appendChild(priceInfo);
+    cardFirstDiv.append(mountingInfo);
+    card.append(cardFirstDiv, doorSpec);
+
+    prevState = document.querySelector('.factory-discr');
+    document.querySelector('.factory-discr').replaceWith(card);
+    window.setTimeout(() => window.scrollTo(0, 0), 0);
+  }
   if (target.closest('.disc-open_btn-close')) {
-    discOpenContainer.hidden = true;
-    discOpenContainer = null;
-    factoryDiscrOpen.hidden = false;
+    document.querySelector('.factory-discr-last').replaceWith(prevState);
+    
+    window.scrollTo(0, scrollState);
   }  
 });
 
@@ -127,5 +166,7 @@ const deskMenu = document.querySelector('.desk-menu');
 window.addEventListener('resize', () => {
   
 })
-
+// {<button class="disc-open_btn-close" type="button" aria-label="close"></button>}
 // test
+document.addEventListener('click', (event) => {
+})
